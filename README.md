@@ -1,6 +1,6 @@
 # Movie Explorer App
 
-Aplicacion web para buscar y explorar peliculas y series utilizando la API de OMDb.
+Aplicación web para buscar y explorar películas y series utilizando la API de OMDb.
 
 ## Tech Stack
 
@@ -18,7 +18,7 @@ Aplicacion web para buscar y explorar peliculas y series utilizando la API de OM
 - Node.js >= 18
 - npm
 
-## Instalacion
+## Instalación
 
 1. Clonar el repositorio:
 
@@ -45,7 +45,7 @@ cp .env.example .env
 VITE_OMDB_API_KEY=tu_api_key
 ```
 
-> Puedes obtener una API Key gratuita en [omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx) seleccionando el plan FREE (1,000 peticiones/dia).
+> Puedes obtener una API Key gratuita en [omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx) seleccionando el plan FREE (1,000 peticiones/día).
 
 5. Iniciar el servidor de desarrollo:
 
@@ -53,41 +53,42 @@ VITE_OMDB_API_KEY=tu_api_key
 npm run dev
 ```
 
-La aplicacion estara disponible en `http://localhost:5173`.
+La aplicación estará disponible en `http://localhost:5173`.
 
 ## Scripts disponibles
 
-| Comando | Descripcion |
-|---|---|
-| `npm run dev` | Inicia el servidor de desarrollo |
-| `npm run build` | Compila TypeScript y genera el build de produccion |
-| `npm run preview` | Previsualiza el build de produccion |
-| `npm run lint` | Ejecuta ESLint |
+| Comando           | Descripción                                        |
+| ----------------- | -------------------------------------------------- |
+| `npm run dev`     | Inicia el servidor de desarrollo                   |
+| `npm run build`   | Compila TypeScript y genera el build de producción  |
+| `npm run preview` | Previsualiza el build de producción                |
+| `npm run lint`    | Ejecuta ESLint                                     |
 
 ## Estructura del proyecto
 
 ```
 src/
-  app/              # Configuracion de la app (router, providers)
-  features/         # Modulos por dominio
-    favorites/      # Gestion de favoritos
-    home/           # Pagina principal
-    movie-detail/   # Detalle de pelicula
-    search/         # Busqueda y filtros
+  app/              # Configuración de la app (router, providers)
+  features/         # Módulos por dominio
+    favorites/      # Gestión de favoritos
+    home/           # Página principal
+    movie-detail/   # Detalle de película
+    search/         # Búsqueda y filtros
   shared/           # Componentes, utilidades y tipos compartidos
+    actions/        # Acciones de fetch (API)
     components/     # Componentes reutilizables (UI, layout, etc.)
-    lib/            # Utilidades y cliente de API
+    lib/            # Utilidades
     types/          # Tipos globales
 ```
 
 ## Funcionalidades
 
-- Busqueda de peliculas y series por titulo
-- Filtros por tipo (pelicula/serie) y ano
-- Paginacion de resultados
-- Vista de detalle con informacion completa
+- Búsqueda de películas y series por título
+- Filtros por tipo (película/serie) y año
+- Paginación de resultados
+- Vista de detalle con información completa
 - Favoritos con persistencia en localStorage
-- Historial de busquedas recientes
+- Historial de búsquedas recientes
 - Dark/Light mode
 - Skeleton loading
-- Diseno responsive
+- Diseño responsive
