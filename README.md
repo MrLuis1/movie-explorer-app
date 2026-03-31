@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# Movie Explorer App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicacion web para buscar y explorar peliculas y series utilizando la API de OMDb.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript**
+- **Vite** - Bundler
+- **Tailwind CSS v4** - Estilos
+- **React Router v7** - Enrutamiento
+- **TanStack Query** - Manejo de estado del servidor
+- **Zustand** - Estado global (favoritos, historial)
+- **Radix UI** - Componentes accesibles
+- **Lucide React** - Iconos
 
-## React Compiler
+## Requisitos previos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js >= 18
+- npm
 
-## Expanding the ESLint configuration
+## Instalacion
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clonar el repositorio:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <url-del-repositorio>
+cd movie-explorer-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instalar dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Configurar variables de entorno:
+
+```bash
+cp .env.example .env
+```
+
+4. Editar el archivo `.env` y agregar tu API Key de OMDb:
+
+```
+VITE_OMDB_API_KEY=tu_api_key
+```
+
+> Puedes obtener una API Key gratuita en [omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx) seleccionando el plan FREE (1,000 peticiones/dia).
+
+5. Iniciar el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+La aplicacion estara disponible en `http://localhost:5173`.
+
+## Scripts disponibles
+
+| Comando | Descripcion |
+|---|---|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Compila TypeScript y genera el build de produccion |
+| `npm run preview` | Previsualiza el build de produccion |
+| `npm run lint` | Ejecuta ESLint |
+
+## Estructura del proyecto
+
+```
+src/
+  app/              # Configuracion de la app (router, providers)
+  features/         # Modulos por dominio
+    favorites/      # Gestion de favoritos
+    home/           # Pagina principal
+    movie-detail/   # Detalle de pelicula
+    search/         # Busqueda y filtros
+  shared/           # Componentes, utilidades y tipos compartidos
+    components/     # Componentes reutilizables (UI, layout, etc.)
+    lib/            # Utilidades y cliente de API
+    types/          # Tipos globales
+```
+
+## Funcionalidades
+
+- Busqueda de peliculas y series por titulo
+- Filtros por tipo (pelicula/serie) y ano
+- Paginacion de resultados
+- Vista de detalle con informacion completa
+- Favoritos con persistencia en localStorage
+- Historial de busquedas recientes
+- Dark/Light mode
+- Skeleton loading
+- Diseno responsive
