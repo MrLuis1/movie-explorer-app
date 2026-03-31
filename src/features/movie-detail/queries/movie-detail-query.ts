@@ -1,4 +1,4 @@
-import { getMovieDetail } from "@/shared/lib/omdb";
+import { getMovieDetail } from "@/shared/actions/get-movie-detail";
 import { useQuery } from "@tanstack/react-query";
 
 export const useMovieDetailQuery = (imdbId: string | undefined) => {

@@ -1,4 +1,4 @@
-import { searchMovies } from "@/shared/lib/omdb";
+import { searchMovies } from "@/shared/actions/search-movies";
 import type { SearchParams } from "@/shared/types/movie";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
